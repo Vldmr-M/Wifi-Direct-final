@@ -64,7 +64,7 @@ class FileSenderActivity : BaseActivity() {
     ) { imageUri ->
         if (imageUri != null) {
             val ipAddress = wifiP2pInfo?.groupOwnerAddress?.hostAddress
-            log("getContentLaunch $imageUri $ipAddress")
+            //log("getContentLaunch $imageUri $ipAddress")
             if (!ipAddress.isNullOrBlank()) {
                 fileSenderViewModel.send(ipAddress = ipAddress, fileUri = imageUri)
             }
@@ -97,13 +97,13 @@ class FileSenderActivity : BaseActivity() {
             deviceAdapter.notifyDataSetChanged()
             btnDisconnect.isEnabled = true
             btnChooseFile.isEnabled = true
-            log("onConnectionInfoAvailable")
-            log("onConnectionInfoAvailable groupFormed: " + wifiP2pInfo.groupFormed)
-            log("onConnectionInfoAvailable isGroupOwner: " + wifiP2pInfo.isGroupOwner)
-            log("onConnectionInfoAvailable getHostAddress: " + wifiP2pInfo.groupOwnerAddress.hostAddress)
+            //log("onConnectionInfoAvailable")
+            //log("onConnectionInfoAvailable groupFormed: " + wifiP2pInfo.groupFormed)
+            //log("onConnectionInfoAvailable isGroupOwner: " + wifiP2pInfo.isGroupOwner)
+            //log("onConnectionInfoAvailable getHostAddress: " + wifiP2pInfo.groupOwnerAddress.hostAddress)
             val stringBuilder = StringBuilder()
             stringBuilder.append("\n")
-            stringBuilder.append("is group owner?:")
+            stringBuilder.append("владелец группы?: ")
             stringBuilder.append(if (wifiP2pInfo.isGroupOwner) "да" else "нет")
             stringBuilder.append("\n")
             stringBuilder.append("IP-адрес владельца группы：")
@@ -279,11 +279,11 @@ class FileSenderActivity : BaseActivity() {
     private fun disconnect() {
         wifiP2pManager.cancelConnect(wifiP2pChannel, object : WifiP2pManager.ActionListener {
             override fun onFailure(reasonCode: Int) {
-                log("cancelConnect onFailure:$reasonCode")
+                //log("cancelConnect onFailure:$reasonCode")
             }
 
             override fun onSuccess() {
-                log("cancelConnect onSuccess")
+                //log("cancelConnect onSuccess")
                 tvConnectionStatus.text = null
                 btnDisconnect.isEnabled = false
                 btnChooseFile.isEnabled = false

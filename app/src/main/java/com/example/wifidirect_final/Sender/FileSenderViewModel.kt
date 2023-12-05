@@ -59,16 +59,16 @@ class FileSenderViewModel(context: Application) :
 
                     _viewState.emit(value = ViewState.Connecting)
                     _log.emit(value = "Файлы для отправки: $fileTransfer")
-                    _log.emit(value = "open Socket")
+                    //_log.emit(value = "open Socket")
                     socket = Socket()
                     socket.bind(null)
 
-                    _log.emit(value = "socket connect")
+                    //_log.emit(value = "socket connect")
 
                     socket.connect(InetSocketAddress(ipAddress, Constants.PORT), 30000)
 
                     _viewState.emit(value = ViewState.Receiving)
-                    _log.emit(value = "Соединение установлено успешно, и начинается передача файлов.")
+                    _log.emit(value = "Соединение установлено успешно, начинается передача файлов.")
 
                     outputStream = socket.getOutputStream()
                     objectOutputStream = ObjectOutputStream(outputStream)

@@ -56,13 +56,13 @@ class FileReceiverActivity : BaseActivity() {
 
     private val directActionListener = object : DirectActionListener {
         override fun wifiP2pEnabled(enabled: Boolean) {
-            log("wifiP2pEnabled: $enabled")
+            //log("wifiP2pEnabled: $enabled")
         }
 
         override fun onConnectionInfoAvailable(wifiP2pInfo: WifiP2pInfo) {
-            log("onConnectionInfoAvailable")
-            log("isGroupOwner：" + wifiP2pInfo.isGroupOwner)
-            log("groupFormed：" + wifiP2pInfo.groupFormed)
+            //log("onConnectionInfoAvailable")
+            //log("isGroupOwner：" + wifiP2pInfo.isGroupOwner)
+            //log("groupFormed：" + wifiP2pInfo.groupFormed)
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
                 connectionInfoAvailable = true
             }
@@ -70,22 +70,22 @@ class FileReceiverActivity : BaseActivity() {
 
         override fun onDisconnection() {
             connectionInfoAvailable = false
-            log("onDisconnection")
+            //log("onDisconnection")
         }
 
         override fun onSelfDeviceAvailable(wifiP2pDevice: WifiP2pDevice) {
-            log("onSelfDeviceAvailable: \n$wifiP2pDevice")
+            //log("onSelfDeviceAvailable: \n$wifiP2pDevice")
         }
 
         override fun onPeersAvailable(wifiP2pDeviceList: Collection<WifiP2pDevice>) {
-            log("onPeersAvailable , size:" + wifiP2pDeviceList.size)
+            //log("onPeersAvailable , size:" + wifiP2pDeviceList.size)
             for (wifiP2pDevice in wifiP2pDeviceList) {
-                log("wifiP2pDevice: $wifiP2pDevice")
+                //log("wifiP2pDevice: $wifiP2pDevice")
             }
         }
 
         override fun onChannelDisconnected() {
-            log("onChannelDisconnected")
+            //log("onChannelDisconnected")
         }
     }
 
@@ -206,8 +206,8 @@ class FileReceiverActivity : BaseActivity() {
                         object : WifiP2pManager.ActionListener {
                             override fun onSuccess() {
                                 val log = "removeGroup onSuccess"
-                                log(log = log)
-                                showToast(message = log)
+                                //log(log = log)
+                                //showToast(message = log)
                                 continuation.resume(value = Unit)
                             }
 
