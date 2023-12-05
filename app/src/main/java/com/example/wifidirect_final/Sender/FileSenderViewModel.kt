@@ -8,7 +8,6 @@ import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wifidirect_final.Constants
-//import github.leavesczy.wifip2p.Constants
 import com.example.wifidirect_final.Models.FileTransfer
 import com.example.wifidirect_final.Models.ViewState
 import kotlinx.coroutines.Dispatchers
